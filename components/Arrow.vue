@@ -1,0 +1,49 @@
+<template>
+  <div class="arrow">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</template>
+// https://codepen.io/raf187/pen/BvgGRQ
+<style>
+.arrow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.arrow span {
+  display: block;
+  width: 35px;
+  height: 35px;
+  border-bottom: 8px solid #06A8FF;
+  border-right: 8px solid #06A8FF;
+  transform: rotate(45deg);
+  margin: -10px;
+  animation: animate 2s infinite;
+}
+
+.arrow span:nth-child(2) {
+  animation-delay: -0.2s;
+}
+
+.arrow span:nth-child(3) {
+  animation-delay: -0.4s;
+}
+
+@keyframes animate {
+  0% {
+    opacity: 0;
+    transform: rotate(45deg) translate(-20px, -20px);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(45deg) translate(20px, 20px);
+  }
+}
+</style>
