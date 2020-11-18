@@ -17,6 +17,7 @@
                    ref="my-modal"
                    centered
                    hide-footer
+                   no-fade
                    hide-backdrop>
             <div class="media title-media">
               <img src="/images/sprut_violet_logo.svg" class="img-fluid sprut-logo align-self-center mr-3" alt="">
@@ -83,7 +84,7 @@ import 'vue-slick-carousel/dist/vue-slick-carousel.css'
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
 import System from "~/components/System";
 import Products from "~/components/Products";
-import Cart from "~/components/Cart";
+import Cart from "~/components/__Cart";
 
 export default {
   components: {Products, VueSlickCarousel, Cart, System},
@@ -174,7 +175,7 @@ a.to-order-button {
 .to-next-button {
   position: absolute;
   bottom: 8.7%;
-  left: 25%;
+  left: 28%;
 }
 a.to-next-button {
   color: #193AAE;

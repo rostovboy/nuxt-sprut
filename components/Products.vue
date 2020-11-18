@@ -1,37 +1,18 @@
 <template>
-  <!--<b-row class="align-items-center">
-    <b-col :lg="6">
-      <div class="form-check" v-for="product of products.results" :key="product.id">
-        <input class="form-check-input" type="radio" v-model="selected" :value="product.id" checked>
-        <label class="form-check-label">
-          {{ product.pagetitle }}
-        </label>
-      </div>
-    </b-col>
-    <b-col :lg="6">
-      <div :v-show="selected === product.id" v-for="product of products.results" :key="product.id" style="display: none">
-        {{ product.pagetitle }}
-      </div>
-      &lt;!&ndash;<div class="product-card" v-for="product of products.results" :key="product.id">
-        <a href="#" @click.prevent="">
-          <b-card class="mb-3" :title="product.pagetitle" :img-src="product.thumb" :img-alt="product.pagetitle"></b-card>
-        </a>
-      </div>&ndash;&gt;
-    </b-col>
-  </b-row>-->
   <b-tabs pills card vertical nav-wrapper-class="w-50">
     <b-tab v-for="product of products.results" :key="product.id" :title="product.pagetitle">
       <div class="product-container">
         <b-row class="align-items-center">
           <b-col :lg="5">
-            <img :src="product.thumb" class="img-fluid" alt="">
+            <img v-if="product.thumb" :src="product.thumb" class="img-fluid" alt="">
+            <img v-else src="/images/no-image.svg" class="img-fluid" alt="">
           </b-col>
           <b-col :lg="7">
-            <div class="product-props" v-html="product.props"></div>
+            <div v-if="product.props" class="product-props" v-html="product.props"></div>
           </b-col>
         </b-row>
-        <div class="product-feature" v-html="product.feature"></div>
-        <p class="product-longtitle" v-html="product.longtitle"></p>
+        <div v-if="product.feature" class="product-feature" v-html="product.feature"></div>
+        <p v-if="product.longtitle" class="product-longtitle" v-html="product.longtitle"></p>
         <p class="product-pagetitle" v-html="product.pagetitle"></p>
         <b-row class="align-items-center mt-3" v-if="product.price != '0'">
           <b-col :lg="6">
@@ -44,7 +25,7 @@
           </b-col>
         </b-row>
       </div>
-      <button type="submit" class="addcart-black-button">Добавить в заказ</button>
+      <button type="submit" class="addcart-black-button" @click="">Добавить в заказ</button>
     </b-tab>
   </b-tabs>
 </template>
@@ -53,7 +34,6 @@
 export default {
   props: ['category'],
   methods: {
-    // https://stackoverflow.com/questions/43208012/how-do-i-format-currencies-in-a-vue-component
     formatPrice(value) {
       let val = value
       return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
@@ -61,7 +41,6 @@ export default {
   },
   data() {
     return {
-      selected: null,
       products: []
     }
   },
@@ -69,24 +48,10 @@ export default {
     this.products = await this.$axios.$get(`https://sprut.fract.ru/api/products&parent=${this.category}`)
   },
   fetchOnServer: false
-
-  /*async fetch({store, error}) {
-    try {
-      await store.dispatch('products/fetchProductsByParent', 3)
-    } catch (e) {
-      error(e)
-    }
-  },
-  computed: {
-    products() {
-      return this.$store.getters['products/products']
-    }
-  },*/
 }
 </script>
 
 <style lang="scss" scoped>
-
 .product-container {
   border: 3px solid #02c9f8;
   padding: 1rem 2.2rem;

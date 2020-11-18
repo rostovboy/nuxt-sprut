@@ -16,12 +16,16 @@ body {
 }
 .modal-content {
   border-radius: 1rem;
+  min-height: 600px;
+  max-height: 600px;
+  border: none;
+  box-shadow: 1px 1px 8px 0 #151515bd;
 }
-.modal-content {
-  min-height: 600px !important;
-  max-height: 600px !important;
-  border: none !important;
-  box-shadow: 1px 1px 8px 0 #151515bd !important;
+#askCall .modal-content {
+  min-height: auto;
+}
+#askCall .modal-body {
+  padding: 1rem 2rem;
 }
 .nav-pills .nav-link, .nav-pills .nav-link.active {
   color: #000;
