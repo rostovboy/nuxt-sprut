@@ -1,35 +1,21 @@
 <template>
-  <nav class="top-nav">
-    <b-container>
-      <b-row>
-        <b-col cols="8" :lg="3">
-          <a class="navbar-logo" href="/">
-            <img class="img-fluid" src="@/static/images/bastion_logo.svg">
-          </a>
-        </b-col>
-        <b-col :lg="6" class="d-none d-lg-block">
-          <ul class="top-menu">
-            <li>
-              <a class="pseudo" href="#configurator">Конфигуратор</a>
-            </li>
-            <li>
-              <a class="pseudo" href="#about">О системе</a>
-            </li>
-            <li>
-              <a class="pseudo" href="#contacts">Контакты</a>
-            </li>
-          </ul>
-        </b-col>
-        <b-col cols="4" :lg="3" class="text-right">
-          <button v-b-modal.askCall class="d-none d-lg-block call-button">
-            Заказать звонок
-          </button>
-          <button v-b-modal.askCall class="call-button call-mobile d-lg-none">
-            <font-awesome-icon :icon="['fas', 'phone-alt']"/>
-          </button>
-        </b-col>
 
-      </b-row>
+  <b-navbar toggleable="lg" type="dark" fixed="top">
+    <b-container>
+      <b-navbar-brand href="/">
+        <img class="img-fluid" src="/images/bastion_logo.svg">
+      </b-navbar-brand>
+
+      <b-navbar-nav v-for="item in items" :key="item.link">
+        <b-nav-item :href="item.link" @click="goToBlock" class="pseudo">{{ item.name }}</b-nav-item>
+      </b-navbar-nav>
+
+      <button v-b-modal.askCall class="d-none d-lg-block call-button">
+        Заказать звонок
+      </button>
+      <button v-b-modal.askCall class="call-button call-mobile d-lg-none">
+        <font-awesome-icon :icon="['fas', 'phone-alt']"/>
+      </button>
     </b-container>
 
     <b-modal id="askCall" centered title="Обратный звонок" hide-footer>
@@ -65,11 +51,16 @@
         </b-form>
       </div>
     </b-modal>
-
-  </nav>
+  </b-navbar>
 </template>
 
 <style lang="scss" scoped>
+a.nav-link {
+  color: #fff !important;
+}
+.navbar-dark {
+  background-color: black !important;
+}
 input {
   height: 3.2rem;
   border-radius: 5rem;
@@ -81,3 +72,33 @@ input {
   padding-left: 1rem;
 }
 </style>
+
+<script>
+export default {
+  data() {
+    return {
+      items: [
+        {
+          name: 'Конфигуратор',
+          link: '#configurator'
+        },
+        {
+          name: 'О системе',
+          link: '#about'
+        },
+        {
+          name: 'Контакты',
+          link: '#contacts'
+        }
+      ]
+    }
+  },
+  methods: {
+    goToBlock: function (event) {
+      event.preventDefault()
+      let link = event.target.getAttribute('href')
+      document.querySelector(link).scrollIntoView({behavior: 'smooth', block: 'start'})
+    }
+  }
+}
+</script>

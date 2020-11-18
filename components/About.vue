@@ -1,11 +1,11 @@
 <template>
   <section id="about">
-    <b-container>
+    <b-container class="vert-center">
       <b-row class="align-items-center">
         <b-col :sm="5" :lg="5">
           <div class="matrix">
-            <img class="img-fluid matrix-img" src="@/static/images/about.jpg" alt="">
-            <img class="matrix-bg" src="@/static/images/matrix.svg" alt="">
+            <img class="img-fluid matrix-img" src="/images/about.jpg" alt="">
+            <img class="matrix-bg" src="/images/matrix.svg" alt="">
           </div>
         </b-col>
         <b-col :sm="7" :lg="7">

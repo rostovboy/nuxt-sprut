@@ -2,13 +2,13 @@
   <section id="begin">
     <b-container class="vert-center">
       <div class="text-center box">
-        <img class="img-fluid begin-logo" src="@/static/images/sprut_logo.svg" alt="Sprut">
+        <img class="img-fluid begin-logo" src="/images/sprut_logo.svg" alt="Sprut">
         <p class="begin-slogan">Собери комплект СКУД</p>
         <div class="begin-arrow">
           <Arrow />
         </div>
         <p>
-          <a class="black-button" href="#configurator">Собрать</a>
+          <a class="black-button" @click="goToBlock" href="#configurator">Собрать</a>
         </p>
       </div>
     </b-container>
@@ -18,7 +18,16 @@
 <script>
 import Arrow from "~/components/Arrow";
 export default {
-  components: {Arrow}
+  components: {
+    Arrow
+  },
+  methods: {
+    goToBlock:  function (event) {
+      event.preventDefault()
+      let link = event.target.getAttribute('href')
+      document.querySelector(link).scrollIntoView({ behavior: 'smooth', block: 'start'})
+    }
+  }
 }
 </script>
 
@@ -28,12 +37,7 @@ export default {
   top: 58px;
   left: 0;
 }
-.vert-center {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+
 .begin-slogan {
   font-size: 3rem;
   color: #fff;

@@ -14,15 +14,15 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap' }
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap' },
+      { rel: 'stylesheet', href: '/voxfont/stylesheet.css' }
     ]
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
     '@/assets/scss/index.scss',
-    '@/assets/scss/media.scss',
-    '@/static/voxfont/stylesheet.css'
+    '@/assets/scss/media.scss'
   ],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
@@ -59,5 +59,9 @@ export default {
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
+    // https://github.com/bootstrap-vue/bootstrap-vue/issues/5627#issuecomment-685049749
+    babel: {
+      compact: true
+    }
   }
 }

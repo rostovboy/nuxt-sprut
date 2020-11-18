@@ -39,33 +39,37 @@
             h2.8V1z M153.8,1H151V0h2.8V1z M148.2,1h-2.8V0h2.8V1z M142.5,1h-2.8V0h2.8V1z M136.9,1h-2.2V0h2.2V1z"/>
       </svg>
     </div>
-    <div class="system-part ups">
-      <svg viewBox="0 0 120 160">
-        <g id="bp">
-          <g>
+    <a href="javascript:" @click.prevent="add" @click="$bvModal.show(`categoryId-8`)">
+      <div class="system-part ups">
+        <svg viewBox="0 0 120 160">
+          <g id="bp">
             <g>
-              <path class="st0" d="M119,160H1c-0.6,0-1-0.4-1-1V1c0-0.6,0.4-1,1-1h118c0.6,0,1,0.4,1,1v158.1C120,159.6,119.6,160,119,160z
+              <g>
+                <path class="st0" d="M119,160H1c-0.6,0-1-0.4-1-1V1c0-0.6,0.4-1,1-1h118c0.6,0,1,0.4,1,1v158.1C120,159.6,119.6,160,119,160z
                              M2,158h116V2H2V158z"/>
-            </g>
-            <g>
-              <path class="st0" d="M32.9,54.6H13c-0.6,0-1-0.4-1-1V15.8c0-0.6,0.4-1,1-1h19.9c0.6,0,1,0.4,1,1v37.8
+              </g>
+              <g>
+                <path class="st0" d="M32.9,54.6H13c-0.6,0-1-0.4-1-1V15.8c0-0.6,0.4-1,1-1h19.9c0.6,0,1,0.4,1,1v37.8
                             C33.8,54.2,33.4,54.6,32.9,54.6z M14,52.6h17.9V16.8H14V52.6z"/>
+              </g>
+              <g>
+                <path class="st0" d="M29.2,18.5H16.7v30.1h12.4L29.2,18.5L29.2,18.5z"/>
+              </g>
+              <path class="st0" d="M60,11.4c1.1,0,1.9-0.9,1.9-1.9S61,7.5,60,7.5c-1,0-1.9,0.9-1.9,1.9S59,11.4,60,11.4z"/>
+              <path class="st0"
+                    d="M60,152.5c1.1,0,1.9-0.9,1.9-1.9c0-1.1-0.9-1.9-1.9-1.9c-1,0-1.9,0.9-1.9,1.9C58.2,151.7,59,152.5,60,152.5z"
+              />
             </g>
-            <g>
-              <path class="st0" d="M29.2,18.5H16.7v30.1h12.4L29.2,18.5L29.2,18.5z"/>
-            </g>
-            <path class="st0" d="M60,11.4c1.1,0,1.9-0.9,1.9-1.9S61,7.5,60,7.5c-1,0-1.9,0.9-1.9,1.9S59,11.4,60,11.4z"/>
-            <path class="st0" d="M60,152.5c1.1,0,1.9-0.9,1.9-1.9c0-1.1-0.9-1.9-1.9-1.9c-1,0-1.9,0.9-1.9,1.9C58.2,151.7,59,152.5,60,152.5z"
-            />
           </g>
-        </g>
-      </svg>
-    </div>
-    <div class="system-part controller">
-      <svg viewBox="0 0 90 90">
-        <g id="controller">
-          <g>
-            <path class="st0" d="M78.4,37.9H89c0.6,0,1-0.4,1-1V1c0-0.6-0.4-1-1-1H1C0.4,0,0,0.4,0,1v36c0,0.6,0.4,1,1,1h10.4l4.9,3.5v6.9
+        </svg>
+      </div>
+    </a>
+    <a href="javascript:" @click.prevent="add" @click="$bvModal.show(`categoryId-3`)">
+      <div class="system-part controller">
+        <svg viewBox="0 0 90 90">
+          <g id="controller">
+            <g>
+              <path class="st0" d="M78.4,37.9H89c0.6,0,1-0.4,1-1V1c0-0.6-0.4-1-1-1H1C0.4,0,0,0.4,0,1v36c0,0.6,0.4,1,1,1h10.4l4.9,3.5v6.9
                         L11.4,52H1c-0.6,0-1,0.4-1,1v36c0,0.6,0.4,1,1,1h88c0.6,0,1-0.4,1-1V52.8c0-0.6-0.4-1-1-1H78.4l-4.9-3.5v-6.9L78.4,37.9z M88,2
                         v8.6H2V2H88z M82.5,19.1c0,1.4-1.2,2.6-2.6,2.6c-1.4,0-2.6-1.1-2.6-2.6c0-1.5,1.1-2.6,2.6-2.6C81.3,16.5,82.5,17.7,82.5,19.1z
                          M74.8,19.1c0,1.4-1.1,2.6-2.6,2.6c-1.5,0-2.6-1.1-2.6-2.6c0-1.5,1.1-2.6,2.6-2.6C73.7,16.5,74.8,17.7,74.8,19.1z M66.9,19.1
@@ -80,29 +84,31 @@
                         c0.2,0.1,0.4,0.2,0.6,0.2H88v34H2V53.8h9.8c0.2,0,0.4-0.1,0.6-0.2l5.6-4c0.3-0.2,0.4-0.5,0.4-0.8v-7.9c0-0.3-0.2-0.6-0.4-0.8
                         l-5.6-4c-0.2-0.1-0.4-0.2-0.6-0.2H2v-8.3h86v8.3h-9.9c-0.2,0-0.4,0.1-0.6,0.2l-5.6,4c-0.3,0.2-0.4,0.5-0.4,0.8v7.9
                         C71.5,49.2,71.6,49.5,71.9,49.7z"/>
-            <g>
-              <path class="st0" d="M21.4,80.4c-5.9,0-10.7-4.8-10.7-10.7c0-5.9,4.8-10.7,10.7-10.7c5.9,0,10.7,4.8,10.7,10.7
+              <g>
+                <path class="st0" d="M21.4,80.4c-5.9,0-10.7-4.8-10.7-10.7c0-5.9,4.8-10.7,10.7-10.7c5.9,0,10.7,4.8,10.7,10.7
                             C32.2,75.6,27.3,80.4,21.4,80.4z M21.4,61c-4.8,0-8.7,3.9-8.7,8.6c0,4.8,3.9,8.6,8.7,8.6c4.8,0,8.7-3.9,8.7-8.6
                             C30.1,65,26.2,61,21.4,61z"/>
-            </g>
-            <g>
-              <path class="st0" d="M35.9,32.7h-9.5v9.5h9.5V32.7z"/>
-            </g>
-            <g>
-              <path class="st0" d="M78,74.8H43.3v6H78V74.8z"/>
-            </g>
-            <path class="st0" d="M65.3,57.9v-1.6h-4.7v-1.5h4.7v-1.6h-4.7v-1.6h4.7V50h-4.7v-1.6h4.7v-1.6h-4.7v-1.8c0-0.6-0.4-1-1-1h-1.8
+              </g>
+              <g>
+                <path class="st0" d="M35.9,32.7h-9.5v9.5h9.5V32.7z"/>
+              </g>
+              <g>
+                <path class="st0" d="M78,74.8H43.3v6H78V74.8z"/>
+              </g>
+              <path class="st0" d="M65.3,57.9v-1.6h-4.7v-1.5h4.7v-1.6h-4.7v-1.6h4.7V50h-4.7v-1.6h4.7v-1.6h-4.7v-1.8c0-0.6-0.4-1-1-1h-1.8
                         v-4.8h-1.6v4.8h-1.6v-4.8h-1.6v4.8h-1.5v-4.8h-1.6v4.8h-1.6v-4.8h-1.6v4.8h-1.6v-4.8h-1.6v4.8h-1.8c-0.6,0-1,0.4-1,1v1.8h-4.8v1.6
                         h4.8V50h-4.8v1.6h4.8v1.6h-4.8v1.6h4.8v1.6h-4.8V58h4.8v1.6h-4.8v1.6h4.8V63c0,0.6,0.4,1,1,1h1.8v4.7h1.6V64h1.6v4.7h1.6V64h1.6
                         v4.7h1.6V64H53v4.7h1.6V64h1.6v4.7h1.6V64h1.8c0.6,0,1-0.4,1-1v-1.8h4.7v-1.6h-4.7V58h4.6V57.9z M58.6,61.9H42.6V46h15.9V61.9z"/>
+            </g>
           </g>
-        </g>
-      </svg>
-    </div>
-    <div class="system-part dovod">
-      <svg viewBox="0 0 90 40">
-        <g id="dovodchik">
-          <path class="st0" d="M72.7,6h-2.9v1.4h2.9V6z M68.4,22.5h-2.9v1.4h2.9V22.5z M5.9,37.2H2v1.4h3.9V37.2z M5.7,30.4H2.2
+        </svg>
+      </div>
+    </a>
+    <a href="javascript:" @click.prevent="add" @click="$bvModal.show(`categoryId-4`)">
+      <div class="system-part dovod">
+        <svg viewBox="0 0 90 40">
+          <g id="dovodchik">
+            <path class="st0" d="M72.7,6h-2.9v1.4h2.9V6z M68.4,22.5h-2.9v1.4h2.9V22.5z M5.9,37.2H2v1.4h3.9V37.2z M5.7,30.4H2.2
                     c-0.4,0-0.7,0.3-0.7,0.7c0,0.4,0.3,0.7,0.7,0.7h3.5c0.4,0,0.7-0.3,0.7-0.7C6.4,30.7,6.1,30.4,5.7,30.4z M12.3,35.1
                     c0.6,0,1.2-0.5,1.2-1.2c0-0.6-0.5-1.2-1.2-1.2c-0.7,0-1.2,0.5-1.2,1.2C11.2,34.6,11.7,35.1,12.3,35.1z M67.8,34.9
                     c0.5,0,0.9-0.4,0.9-0.9s-0.4-0.9-0.9-0.9s-0.9,0.4-0.9,0.9S67.2,34.9,67.8,34.9z M76.8,35.6h2.7c0.8,0,1.6-0.7,1.6-1.6
@@ -131,64 +137,88 @@
                     z M65.8,6.5h10.7c0.3,0,0.5-0.2,0.5-0.5l0-1.7c0-0.1,0-0.2-0.1-0.2l-3.1-3.9C73.8,0.1,73.7,0,73.5,0H69c-0.2,0-0.3,0.1-0.4,0.2
                     l-3.1,3.9c0,0.1-0.1,0.1-0.1,0.2c0,0,0,0,0,0.1V6C65.3,6.3,65.5,6.5,65.8,6.5z M69.2,1h4.1l2.3,2.9h-8.7L69.2,1z M66.3,4.8h9.7v0.7
                     h-9.7V4.8z"/>
-        </g>
-      </svg>
-    </div>
-    <div class="system-part lock">
-      <svg viewBox="0 0 71 22">
-        <path class="st0" d="M70,0H1C0.4,0,0,0.4,0,1V21c0,0.6,0.4,1,1,1h69c0.6,0,1-0.4,1-1V1C71,0.4,70.6,0,70,0z M21.3,6.8h39.6V12H21.3
+          </g>
+        </svg>
+      </div>
+    </a>
+    <a href="javascript:" @click.prevent="add" @click="$bvModal.show(`categoryId-5`)">
+      <div class="system-part lock">
+        <svg viewBox="0 0 71 22">
+          <path class="st0" d="M70,0H1C0.4,0,0,0.4,0,1V21c0,0.6,0.4,1,1,1h69c0.6,0,1-0.4,1-1V1C71,0.4,70.6,0,70,0z M21.3,6.8h39.6V12H21.3
 	V6.8z M21.3,14h39.6v2.9H21.3V14z M21.3,4.8V2.1h39.6v2.7H21.3z M2,2.1h15.4v15.2H2V2.1z M69,19.9H2v-1.6h67V19.9z M69,17.3h-4.2
 	V2.1H69V17.3z"/>
-      </svg>
-    </div>
-    <div class="system-part reader">
-      <svg viewBox="0 0 32 48">
-        <g id="reader">
-          <g>
+        </svg>
+      </div>
+    </a>
+    <a href="javascript:" @click.prevent="add" @click="$bvModal.show(`categoryId-7`)">
+      <div class="system-part reader">
+        <svg viewBox="0 0 32 48">
+          <g id="reader">
             <g>
-              <path class="st0" d="M29.8,48H2.2C1,48,0,47,0,45.8V2.2C0,1,1,0,2.2,0h27.5C31,0,32,1,32,2.2v43.6C32,47,31,48,29.8,48z M2.2,1
+              <g>
+                <path class="st0" d="M29.8,48H2.2C1,48,0,47,0,45.8V2.2C0,1,1,0,2.2,0h27.5C31,0,32,1,32,2.2v43.6C32,47,31,48,29.8,48z M2.2,1
 				C1.5,1,1,1.5,1,2.2v43.6C1,46.5,1.5,47,2.2,47h27.5c0.7,0,1.2-0.5,1.2-1.2V2.2C31,1.5,30.5,1,29.8,1H2.2z"/>
-            </g>
-            <g>
-              <path class="st0" d="M27,40.6H4.9c-1.2,0-2.2-1-2.2-2.2V9.6c0-1.2,1-2.2,2.2-2.2H27c1.2,0,2.2,1,2.2,2.2v28.8
+              </g>
+              <g>
+                <path class="st0" d="M27,40.6H4.9c-1.2,0-2.2-1-2.2-2.2V9.6c0-1.2,1-2.2,2.2-2.2H27c1.2,0,2.2,1,2.2,2.2v28.8
 				C29.3,39.6,28.3,40.6,27,40.6z M4.9,8.4c-0.7,0-1.2,0.5-1.2,1.2v28.8c0,0.7,0.5,1.2,1.2,1.2H27c0.7,0,1.2-0.5,1.2-1.2V9.6
 				c0-0.7-0.5-1.2-1.2-1.2H4.9z"/>
-            </g>
-            <g>
-              <path class="st0" d="M26.7,9.9h-8.6v3h8.6V9.9z"/>
-            </g>
-            <g>
-              <path class="st0" d="M7.2,10.5c0.5,0,1,0.4,1,1c0,0.5-0.4,1-1,1s-0.9-0.4-0.9-1C6.3,10.9,6.7,10.5,7.2,10.5z M7.2,9.8
+              </g>
+              <g>
+                <path class="st0" d="M26.7,9.9h-8.6v3h8.6V9.9z"/>
+              </g>
+              <g>
+                <path class="st0" d="M7.2,10.5c0.5,0,1,0.4,1,1c0,0.5-0.4,1-1,1s-0.9-0.4-0.9-1C6.3,10.9,6.7,10.5,7.2,10.5z M7.2,9.8
 				c-0.9,0-1.7,0.8-1.7,1.7c0,0.9,0.8,1.7,1.7,1.7s1.7-0.8,1.7-1.7C8.9,10.5,8.1,9.8,7.2,9.8z"/>
+              </g>
             </g>
           </g>
-        </g>
-      </svg>
-    </div>
-    <div class="system-part key">
-      <svg viewBox="0 0 27 27">
-        <g id="key">
-          <g>
-            <path class="st0" d="M25.2,0H1.8C0.9,0,0,0.9,0,1.8v23.4c0,0.5,0.2,1,0.5,1.3C0.9,26.8,1.3,27,1.8,27l0,0h23.4
+        </svg>
+      </div>
+    </a>
+    <a href="javascript:" @click.prevent="add" @click="$bvModal.show(`categoryId-6`)">
+      <div class="system-part key">
+        <svg viewBox="0 0 27 27">
+          <g id="key">
+            <g>
+              <path class="st0" d="M25.2,0H1.8C0.9,0,0,0.9,0,1.8v23.4c0,0.5,0.2,1,0.5,1.3C0.9,26.8,1.3,27,1.8,27l0,0h23.4
                         c1,0,1.8-0.9,1.8-1.8V1.8C26.9,0.7,26.1,0,25.2,0z M23.5,21c0-0.1,0.1-0.3,0.1-0.4V6.3c0-0.1,0-0.2-0.1-0.4L25.9,2v22.9L23.5,21z
                          M1,25V2l2.4,3.8C3.3,6,3.3,6.2,3.3,6.3v14.4c0,0.2,0,0.3,0.1,0.4L1,25z M4.5,20.7C4.5,20.7,4.4,20.7,4.5,20.7V6.3
                         c0,0,0-0.1,0.1-0.1h17.9c0,0,0.1,0,0.1,0.1v14.4c0,0,0,0.1-0.1,0.1H4.5z M25.2,1.1h0.1l-2.6,4.1c-0.1,0-0.2-0.1-0.3-0.1H4.6
                         c-0.1,0-0.1,0-0.2,0L1.8,1c0,0,0,0,0.1,0h23.3V1.1z M1.7,25.9C1.7,25.9,1.7,25.8,1.7,25.9l2.6-4.1c0.1,0,0.1,0,0.2,0l0,0h17.9
                         c0.1,0,0.2,0,0.2,0l2.6,4.1H25H1.7z"/>
-            <path class="st0" d="M18.1,12.8h-5.4c-0.3-1.3-1.3-2.1-2.4-2.1c-1.4,0-2.6,1.4-2.6,3.1s1.2,3.1,2.6,3.1c1.2,0,2.1-0.9,2.4-2.1h3.3
+              <path class="st0" d="M18.1,12.8h-5.4c-0.3-1.3-1.3-2.1-2.4-2.1c-1.4,0-2.6,1.4-2.6,3.1s1.2,3.1,2.6,3.1c1.2,0,2.1-0.9,2.4-2.1h3.3
                         v1c0,0.5,0.4,1,1,1s1-0.4,1-1v-1h0.2c0.5,0,1-0.4,1-1C19,13.2,18.7,12.8,18.1,12.8z M10.3,14.9c-0.2,0-0.6-0.4-0.6-1.2
                         s0.4-1.2,0.6-1.2c0.2,0,0.6,0.4,0.6,1.2S10.5,14.9,10.3,14.9z"/>
+            </g>
           </g>
-        </g>
-      </svg>
-    </div>
+        </svg>
+      </div>
+    </a>
   </div>
 </template>
 
+<script>
+export default {
+  props: ['activepart'],
+  methods: {
+    add(event) {
+      this.btnDisabled = true; // mutate data and let vue disable the element
+    }
+  },
+}
+</script>
+
 <style lang="scss" scoped>
+.a {
+  text-decoration: none;
+}
+
 .image-container {
+  margin: 0 auto;
   position: relative;
-  height: 600px;
+  height: 610px;
+  width: 600px;
 }
 
 .image-container svg {
@@ -197,62 +227,62 @@
 }
 
 .door svg {
-  height: 595px;
+  height: 96.9%;
   position: absolute;
-  top: 25px;
-  right: 0;
+  top: 4%;
+  left: 51%;
 }
 
 .links svg {
-  height: 160px;
+  height: 26%;
   position: absolute;
-  top: 55px;
-  right: 295px;
+  top: 9%;
+  left: 21.5%;
 }
 
 .ups svg {
-  height: 160px;
+  height: 26.5%;
   position: absolute;
-  top: 50px;
-  right: 475px;
+  top: 9%;
+  left: 0.5%;
 }
 
 .controller svg {
-  height: 90px;
+  height: 14.5%;
   position: absolute;
   top: 0;
-  right: 327px;
+  left: 31%;
 }
 
 .dovod svg {
-  height: 40px;
+  height: 7%;
   position: absolute;
-  top: 27px;
-  right: 40px;
+  top: 4.4%;
+  left: 78%;
 }
 
 .lock svg {
-  height: 22px;
+  height: 3.8%;
   position: absolute;
-  top: 45px;
-  right: 201px;
+  top: 7.6%;
+  left: 54.5%;
 }
 
 .reader svg {
-  height: 48px;
+  height: 8%;
   position: absolute;
-  top: 216px;
-  right: 318px;
+  top: 35%;
+  left: 41.6%;
 }
 
 .key svg {
-  height: 27px;
+  height: 4.5%;
   position: absolute;
-  top: 290px;
-  right: 320px;
+  top: 47%;
+  left: 42.1%;
 }
 
-.reader.active svg , .key.active svg, .lock.active svg, .ups.active svg, .controller.active svg,
+.reader.active svg, .key.active svg, .lock.active svg, .ups.active svg, .controller.active svg,
 .reader svg:hover, .key svg:hover, .lock svg:hover, .ups svg:hover, .controller svg:hover {
   fill: #fff;
   cursor: pointer;
@@ -263,4 +293,5 @@
   fill: #fff;
   cursor: pointer;
 }
+
 </style>
