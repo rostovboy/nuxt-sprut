@@ -24,19 +24,17 @@
               <div class="media-body align-self-center category-title">{{ category.pagetitle }}</div>
             </div>
 
+            <button class="btn to-order-button"
+                    @click="$bvModal.hide(`categoryId-${category.id}`), $bvModal.show(`Cart`)">
+              Перейти в состав заказа
+            </button>
+
             <!--<a class="to-order-button"
-               href="javascript:"
-               @click.prevent="add"
-               @click="$bvModal.hide(`categoryId-${category.id}`), $bvModal.show(`Cart`)">
+               href="#cart"
+               @click="$bvModal.hide(`categoryId-${category.id}`), goToCart"
+            >
               Перейти в состав заказа
             </a>-->
-
-            <a class="to-order-button"
-               href="#cart"
-               @click.prevent="add"
-               @click="goToCart">
-              Перейти в состав заказа
-            </a>
 
             <div class="products-block">
               <Products :category="category.id"/>
@@ -104,6 +102,7 @@ export default {
       event.preventDefault()
       let link = '#cart'
       document.querySelector(link).scrollIntoView({ behavior: 'smooth', block: 'start'})
+      this.btnDisabled = true;
     },
   },
   computed: {
@@ -154,7 +153,7 @@ export default {
 
 <style lang="scss" scoped>
 
-a.to-order-button {
+.to-order-button, a.to-order-button {
   position: absolute;
   right: 15%;
   top: -64px;

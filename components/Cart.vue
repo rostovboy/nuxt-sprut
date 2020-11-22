@@ -1,8 +1,8 @@
 <template>
-  <div id="cart">
+  <div>
     <div v-if="getProductsInCart.length === 0"></div>
     <div v-else>
-      <b-container>
+
         <p class="title text-center text-lg-left">
           Состав заказа
         </p>
@@ -11,7 +11,7 @@
             <tbody>
             <tr v-for="product of getProductsInCart" :key="product.id">
               <td>{{ product.pagetitle }}</td>
-              <td>1</td>
+              <td>{{ qty }}</td>
               <td>{{ product.price }}</td>
             </tr>
             </tbody>
@@ -39,7 +39,7 @@
             </button>
           </b-col>
         </b-row>
-      </b-container>
+
     </div>
   </div>
 </template>

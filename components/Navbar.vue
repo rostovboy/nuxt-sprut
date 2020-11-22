@@ -2,15 +2,17 @@
 
   <b-navbar toggleable="lg" type="dark" fixed="top">
     <b-container>
-      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+      <!--<b-navbar-toggle target="nav-collapse"></b-navbar-toggle>-->
+      <!--<b-collapse id="nav-collapse" is-nav></b-collapse>-->
+
       <b-navbar-brand href="#begin" @click="goToMain">
         <img class="img-fluid" src="/images/bastion_logo.svg">
       </b-navbar-brand>
-      <b-collapse id="nav-collapse" is-nav>
-        <b-navbar-nav v-for="item in items" :key="item.link">
-          <b-nav-item :href="item.link" @click="goToBlock" class="pseudo">{{ item.name }}</b-nav-item>
-        </b-navbar-nav>
-      </b-collapse>
+      <b-navbar-nav v-for="item in items" :key="item.link" class="d-none d-lg-block">
+        <b-nav-item :href="item.link" @click="goToBlock" class="pseudo">{{ item.name }}</b-nav-item>
+      </b-navbar-nav>
+
       <button v-b-modal.askCall class="d-none d-lg-block call-button">
         Заказать звонок
       </button>
@@ -58,6 +60,7 @@
 <style lang="scss" scoped>
 a.nav-link {
   color: #fff !important;
+  padding: 0.2rem 0 !important;
 }
 .navbar-dark {
   background-color: black !important;

@@ -5,7 +5,7 @@
     </header>
     <Begin />
     <Nuxt />
-    <Cart />
+    <!--<Cart />-->
     <About />
     <Contacts />
     <Footer />
