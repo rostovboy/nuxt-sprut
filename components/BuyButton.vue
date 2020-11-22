@@ -1,0 +1,98 @@
+<template>
+  <div v-if="product">
+    <button
+      v-if="!isProductAdded"
+      :class="$style.buy"
+      @click.prevent="buyClickHandler"
+    >
+      Купить
+    </button>
+    <a
+      v-else
+      :class="$style.added"
+      href="#"
+      title="Товар в корзине. Удалить?"
+      @click.prevent="addedClickHandler"
+    >
+      <span class="added-btn">
+        <font-awesome-icon :icon="['fas', 'check']"/>
+      </span>
+      <span class="remove-btn" style="display: none">
+        <font-awesome-icon  :icon="['fas', 'trash-alt']"/>
+      </span>
+    </a>
+  </div>
+</template>
+
+<script>
+import { mapActions, mapState } from 'vuex'
+
+export default {
+  props: {
+    product: {
+      type: Object,
+      required: true
+    }
+  },
+  computed: {
+    ...mapState({
+      products: state => state.cart.products
+    }),
+    isProductAdded () {
+      return this.products.find(p => p.id === this.product.id)
+    }
+  },
+  methods: {
+    ...mapActions({
+      addProduct: 'cart/addProduct',
+      removeProduct: 'cart/removeProduct'
+    }),
+    buyClickHandler () {
+      this.addProduct(this.product)
+    },
+    addedClickHandler () {
+      this.removeProduct(this.product.id)
+    }
+  }
+}
+</script>
+
+<style lang="scss" module>
+.added {
+  padding: .2rem .6rem;
+  background: #02C9F8;
+  color: #fff;
+  font-size: 1.5rem;
+  position: absolute;
+  left: -95%;
+  bottom: 5%;
+  border-radius: 50%;
+
+  &:hover {
+    text-decoration: none;
+    color: #fff;
+  }
+}
+
+.buy {
+  padding: .5rem 2rem;
+  background: #fff;
+  color: #000;
+  font-size: 1rem;
+  font-weight: 700;
+  border: 1px solid #000;
+  border-radius: 4rem;
+  position: absolute;
+  left: -95%;
+  bottom: 5%;
+
+  &:hover {
+    background: #000;
+    color: #fff;
+    box-shadow: none;
+    position: absolute;
+    left: -95%;
+    bottom: 5%;
+  }
+}
+</style>

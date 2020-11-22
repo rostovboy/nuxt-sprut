@@ -2,7 +2,7 @@
   <b-tabs pills card vertical nav-wrapper-class="w-50">
     <b-tab v-for="product of products.results" :key="product.id" :title="product.pagetitle">
       <div class="product-container">
-        <b-row class="align-items-center">
+        <b-row class="align-items-center mb-3">
           <b-col :lg="5">
             <img v-if="product.thumb" :src="product.thumb" class="img-fluid" alt="">
             <img v-else src="/images/no-image.svg" class="img-fluid" alt="">
@@ -25,13 +25,19 @@
           </b-col>
         </b-row>
       </div>
-      <button type="submit" class="addcart-black-button" @click="">Добавить в заказ</button>
+
+      <BuyButton :product="product" />
+
     </b-tab>
   </b-tabs>
 </template>
 
 <script>
+import BuyButton from "@/components/BuyButton";
 export default {
+  components: {
+    BuyButton
+  },
   props: ['category'],
   methods: {
     formatPrice(value) {
@@ -113,10 +119,5 @@ export default {
 .price svg {
   font-size: 1.8rem;
   margin-bottom: 2px;
-}
-.addcart-black-button, .addcart-black-button:hover {
-  position: absolute;
-  left: -95%;
-  bottom: 5%;
 }
 </style>

@@ -20,6 +20,15 @@
           <p class="slogan text-center text-lg-left">
             Хорошо подобранный замок — гарант безопасности.
           </p>
+          <div v-if="$device.isDesktop">
+            <p>Is Desktop</p>
+          </div>
+          <div v-if="$device.isMobile">
+            <p>Is Mobile</p>
+          </div>
+          <div v-if="$device.isIos">
+            <p>Is Ios</p>
+          </div>
         </b-col>
       </b-row>
     </b-container>

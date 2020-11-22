@@ -2,7 +2,7 @@
 
   <b-navbar toggleable="lg" type="dark" fixed="top">
     <b-container>
-      <b-navbar-brand href="/">
+      <b-navbar-brand href="#begin" @click="goToMain">
         <img class="img-fluid" src="/images/bastion_logo.svg">
       </b-navbar-brand>
 
@@ -97,6 +97,11 @@ export default {
     goToBlock: function (event) {
       event.preventDefault()
       let link = event.target.getAttribute('href')
+      document.querySelector(link).scrollIntoView({behavior: 'smooth', block: 'start'})
+    },
+    goToMain: function (event) {
+      event.preventDefault()
+      let link = '#begin'
       document.querySelector(link).scrollIntoView({behavior: 'smooth', block: 'start'})
     }
   }

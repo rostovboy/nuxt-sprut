@@ -24,10 +24,17 @@
               <div class="media-body align-self-center category-title">{{ category.pagetitle }}</div>
             </div>
 
-            <a class="to-order-button"
+            <!--<a class="to-order-button"
                href="javascript:"
                @click.prevent="add"
                @click="$bvModal.hide(`categoryId-${category.id}`), $bvModal.show(`Cart`)">
+              Перейти в состав заказа
+            </a>-->
+
+            <a class="to-order-button"
+               href="#cart"
+               @click.prevent="add"
+               @click="goToCart">
               Перейти в состав заказа
             </a>
 
@@ -84,7 +91,7 @@ import 'vue-slick-carousel/dist/vue-slick-carousel.css'
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
 import System from "~/components/System";
 import Products from "~/components/Products";
-import Cart from "~/components/__Cart";
+import Cart from "~/components/Cart";
 
 export default {
   components: {Products, VueSlickCarousel, Cart, System},
@@ -92,12 +99,12 @@ export default {
     add(event) {
       this.btnDisabled = true; // mutate data and let vue disable the element
     },
-    goToBlock:  function (event) {
+    goToCart:  function (event) {
+      //this.$refs['my-modal'].hide()
       event.preventDefault()
-      let link = event.target.getAttribute('href')
+      let link = '#cart'
       document.querySelector(link).scrollIntoView({ behavior: 'smooth', block: 'start'})
-      this.$refs['my-modal'].hide()
-    }
+    },
   },
   computed: {
     categories() {
