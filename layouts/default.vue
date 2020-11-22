@@ -8,6 +8,7 @@
     <Cart />
     <About />
     <Contacts />
+    <Footer />
   </div>
 </template>
 

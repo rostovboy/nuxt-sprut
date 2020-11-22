@@ -4,7 +4,7 @@
       <b-row class="align-items-center">
         <b-col :sm="5" :lg="5">
           <div class="matrix">
-            <img class="img-fluid matrix-img" src="/images/dooor.jpg" alt="">
+            <img class="img-fluid matrix-img" src="/images/fuck.jpg" alt="">
             <img class="matrix-bg" src="/images/matrix.svg" alt="">
           </div>
         </b-col>

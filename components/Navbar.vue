@@ -2,14 +2,15 @@
 
   <b-navbar toggleable="lg" type="dark" fixed="top">
     <b-container>
+      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
       <b-navbar-brand href="#begin" @click="goToMain">
         <img class="img-fluid" src="/images/bastion_logo.svg">
       </b-navbar-brand>
-
-      <b-navbar-nav v-for="item in items" :key="item.link">
-        <b-nav-item :href="item.link" @click="goToBlock" class="pseudo">{{ item.name }}</b-nav-item>
-      </b-navbar-nav>
-
+      <b-collapse id="nav-collapse" is-nav>
+        <b-navbar-nav v-for="item in items" :key="item.link">
+          <b-nav-item :href="item.link" @click="goToBlock" class="pseudo">{{ item.name }}</b-nav-item>
+        </b-navbar-nav>
+      </b-collapse>
       <button v-b-modal.askCall class="d-none d-lg-block call-button">
         Заказать звонок
       </button>
