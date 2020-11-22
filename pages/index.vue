@@ -1,7 +1,7 @@
 <template>
   <section id="configurator">
     <b-container>
-      <VueSlickCarousel v-bind="slickSettings" class="category-select">
+      <VueSlickCarousel v-bind="slickSettings" class="category-select" v-if="$device.isDesktop">
         <div v-for="category of categories" :key="category.id" class="text-center">
           <a href="#" @click.prevent="">
             <div class="d-lg-none">
