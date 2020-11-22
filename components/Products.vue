@@ -1,4 +1,28 @@
 <template>
+  <!--<b-row class="align-items-center">
+    <b-col :lg="6">
+      <div class="form-check" v-for="(product, index) of products.results" :key="product.id">
+        <input class="form-check-input"
+               type="radio"
+               name="productSelector"
+               :id="'productId-' + product.id"
+               v-model="selected"
+               :value="product.id"
+               :checked="{ 'checked': index === 0 }">
+        <label class="form-check-label" :for="'productId-' + product.id">
+          {{ product.pagetitle }}
+        </label>
+      </div>
+    </b-col>
+    <b-col :lg="6">
+      <div v-if="selected === product.id" v-for="product of products.results" :key="product.id">
+        {{ product.pagetitle }}
+      </div>
+      <div v-else></div>
+    </b-col>
+  </b-row>-->
+
+
   <b-tabs pills card vertical nav-wrapper-class="w-50">
     <b-tab v-for="product of products.results" :key="product.id" :title="product.pagetitle">
       <div class="product-container">
@@ -47,6 +71,7 @@ export default {
   },
   data() {
     return {
+      selected: null,
       products: []
     }
   },

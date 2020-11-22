@@ -112,6 +112,7 @@ export default {
   },
   data() {
     return {
+      isHidden: false,
       slickSettings: {
         "dots": true,
         "infinite": false,
