@@ -50,7 +50,7 @@
         </b-row>
       </div>
 
-      <BuyButton :product="product" />
+      <BuyButton v-if="product.price != '0'" :product="product" />
 
     </b-tab>
   </b-tabs>

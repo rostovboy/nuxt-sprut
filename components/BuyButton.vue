@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   props: {
@@ -35,23 +35,27 @@ export default {
     }
   },
   computed: {
-    ...mapState({
-      products: state => state.cart.products
+    ...mapGetters({
+      getProductsInCart: 'cart/getProductsInCart'
     }),
     isProductAdded () {
-      return this.products.find(p => p.id === this.product.id)
+      return this.getProductsInCart.find(p => p.productId === this.product.id)
     }
   },
   methods: {
     ...mapActions({
       addProduct: 'cart/addProduct',
-      removeProduct: 'cart/removeProduct'
+      addMetaProduct: 'cart/addMetaProduct',
+      removeProduct: 'cart/removeProduct',
+      removeMetaProduct: 'cart/removeMetaProduct',
     }),
     buyClickHandler () {
-      this.addProduct(this.product)
+      this.addProduct(this.product.id)
+      this.addMetaProduct(this.product)
     },
     addedClickHandler () {
       this.removeProduct(this.product.id)
+      this.removeMetaProduct(this.product.id)
     }
   }
 }

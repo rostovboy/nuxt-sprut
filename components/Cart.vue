@@ -1,44 +1,38 @@
 <template>
   <div>
-    <div v-if="getProductsInCart.length === 0"></div>
+    <div v-if="getProductsInCart.length === 0">
+      <p>
+        Товаров пока нет, но это легко можно исправить :)
+      </p>
+    </div>
     <div v-else>
+      <p class="title text-center text-lg-left">
+        Состав заказа
+      </p>
 
-        <p class="title text-center text-lg-left">
-          Состав заказа
-        </p>
-        <div class="table-responsive">
-          <table class="table table-hover">
-            <tbody>
-            <tr v-for="product of getProductsInCart" :key="product.id">
-              <td>{{ product.pagetitle }}</td>
-              <td>{{ qty }}</td>
-              <td>{{ product.price }}</td>
-            </tr>
-            </tbody>
-          </table>
-        </div>
+      <ProductsList class="products" :products-from-cart="getProductsInCart" />
 
-        <div class="total">Итого</div>
+      <div class="total">Итого: {{ getAmount | round }}</div>
 
-        <hr class="mt-5 mb-3">
-        <p class="delivery mb-5">
-          Бесплатная доставка по России, до двери вашего дома, при заказе на сумму свыше 4 000 руб.
-          (для Ненецкого АО, Республики Саха (Якутия), Камчатского края, Чукотского АО,
-          Магаданской области, Сахалинской области свыше 30 000 руб.)
-        </p>
+      <hr class="mt-5 mb-3">
+      <p class="delivery mb-5">
+        Бесплатная доставка по России, до двери вашего дома, при заказе на сумму свыше 4 000 руб.
+        (для Ненецкого АО, Республики Саха (Якутия), Камчатского края, Чукотского АО,
+        Магаданской области, Сахалинской области свыше 30 000 руб.)
+      </p>
 
-        <b-row>
-          <b-col :lg="6" class="text-center">
-            <button class="gradient-button">
-              Получить скидку
-            </button>
-          </b-col>
-          <b-col :lg="6" class="text-center">
-            <button class="black-button mt-4 mt-lg-0">
-              Оформить заказ
-            </button>
-          </b-col>
-        </b-row>
+      <b-row>
+        <b-col :lg="6" class="text-center">
+          <button class="gradient-button">
+            Получить скидку
+          </button>
+        </b-col>
+        <b-col :lg="6" class="text-center">
+          <button class="black-button mt-4 mt-lg-0">
+            Оформить заказ
+          </button>
+        </b-col>
+      </b-row>
 
     </div>
   </div>
@@ -46,8 +40,14 @@
 
 <script>
 import {mapGetters} from 'vuex'
+import round from '@/mixins/round.js'
+import ProductsList from '@/components/ProductsList.vue'
 
 export default {
+  components: {
+    ProductsList
+  },
+  mixins: [round],
   computed: {
     ...mapGetters({
       getProductsInCart: 'cart/getProductsInCart'
