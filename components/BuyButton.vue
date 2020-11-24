@@ -5,7 +5,7 @@
       :class="$style.buy"
       @click.prevent="buyClickHandler"
     >
-      Купить
+      Добавить в заказ
     </button>
     <a
       v-else

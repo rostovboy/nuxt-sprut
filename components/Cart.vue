@@ -1,20 +1,38 @@
 <template>
   <div>
     <div v-if="getProductsInCart.length === 0">
-      <p>
-        Товаров пока нет, но это легко можно исправить :)
+      <p class="text-center mb-4"><img class="img-fluid" src="~/assets/img/empty_bag.png" alt=""></p>
+      <p class="empty-text">
+        Товаров пока нет, но это легко исправить!<br>
+        <a href="javascript:"
+           class="empty-text-start"
+           @click.prevent="add"
+           @click="$bvModal.hide('Cart'), $bvModal.show('categoryId-3')">
+          Начни с контроллера
+          <font-awesome-icon :icon="['fas', 'arrow-right']"/>
+        </a>
       </p>
     </div>
     <div v-else>
-      <p class="title text-center text-lg-left">
+      <!--<p class="title text-center text-lg-left">
         Состав заказа
-      </p>
+      </p>-->
 
-      <ProductsList class="products" :products-from-cart="getProductsInCart" />
+      <ProductsList class="products" :products-from-cart="getProductsInCart"/>
 
-      <div class="total">Итого: {{ getAmount | round }}</div>
+      <div class="total mb-4">
+        <b-row>
+          <b-col class="text-left pl-4">Итого</b-col>
+          <b-col class="text-right pr-4">{{ getAmount | round | format_price }}
+            <font-awesome-icon :icon="['fas', 'ruble-sign']"/>
+          </b-col>
+        </b-row>
+      </div>
 
-      <hr class="mt-5 mb-3">
+      <span class="free-delivery" v-if="getAmount >= 4000">
+        <font-awesome-icon :icon="['fas', 'check']"/> Бесплатная доставка по России
+      </span>
+      <hr class="mb-3">
       <p class="delivery mb-5">
         Бесплатная доставка по России, до двери вашего дома, при заказе на сумму свыше 4 000 руб.
         (для Ненецкого АО, Республики Саха (Якутия), Камчатского края, Чукотского АО,
@@ -28,7 +46,7 @@
           </button>
         </b-col>
         <b-col :lg="6" class="text-center">
-          <button class="black-button mt-4 mt-lg-0">
+          <button class="black-button mt-4 mt-lg-0" @click="postOrder">
             Оформить заказ
           </button>
         </b-col>
@@ -40,14 +58,45 @@
 
 <script>
 import {mapGetters} from 'vuex'
-import round from '@/mixins/round.js'
+import round from '@/mixins/round'
+import format_price from "@/mixins/format_price"
 import ProductsList from '@/components/ProductsList.vue'
 
 export default {
   components: {
     ProductsList
   },
-  mixins: [round],
+  mixins: [round, format_price],
+  data() {
+    return {
+      postBody: [
+        {
+          products: [
+            [555, 2],
+            [444, 1]
+          ],
+          complect: 1
+        }
+      ],
+      errors: [] // массив для записи ошибок
+    }
+  },
+  methods: {
+    add(event) {
+      this.btnDisabled = true; // mutate data and let vue disable the element
+    },
+    postOrder: function () {
+      const str = JSON.stringify(this.postBody);
+      this.$axios.post('http://unknownsite.ru/api/order', str)
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          alert(str);
+          console.log(error);
+        });
+    }
+  },
   computed: {
     ...mapGetters({
       getProductsInCart: 'cart/getProductsInCart'
@@ -70,13 +119,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.title {
-  background: -webkit-linear-gradient(#2762B9, #972EEA);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.empty-text {
+  font-size: 1.3rem;
   font-family: 'VoxRound', sans-serif;
-  font-size: 2.6rem;
-  font-weight: bold;
+  text-align: center;
+  line-height: 3rem;
+}
+
+a.empty-text-start {
+  color: #259fff;
+  font-size: 1.3rem;
+  font-family: 'VoxRound', sans-serif;
+}
+
+a.empty-text-start:hover {
+  text-decoration: none;
 }
 
 .black-button {
@@ -104,6 +161,23 @@ export default {
 table {
   font-size: 1.3rem;
   font-family: 'VoxRound', sans-serif;
+}
+
+.total {
+  font-family: 'VoxRound', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 500;
+}
+
+.free-delivery {
+  font-size: 1.1rem;
+  font-family: 'VoxRound', sans-serif;
+  color: #7534e4;
+}
+
+.total svg {
+  height: 27px;
+  margin-bottom: 3px;
 }
 
 @media (max-width: 576px) {

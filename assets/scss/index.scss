@@ -38,7 +38,7 @@ body {
 .nav-pills .nav-link.active::before {
   content: "";
   position: absolute;
-  bottom: .7rem;
+  top: .8rem;
   left: -.2rem;
   height: 1.6rem;
   width: 1.65rem;
@@ -131,19 +131,19 @@ a.self-link, a.pseudo, a.pseudo-link, .pseudo a, {
 
 #configurator {
   position: relative;
-  padding-top: 7rem;
-  display: table;
+  padding-top: 6rem;
+  /*display: table;
   height: 100%;
   min-height: 100%;
   width: 100%;
-  color: white;
+  color: white;*/
   background-image: url('~assets/img/sprut_right_bg.svg') !important;
   background-repeat: no-repeat !important;
   background-position: right bottom;
 }
 
 
-#cart {
+/*#cart {
   position: relative;
   background-color: #F7F7F7;
   padding: 6rem 0;
@@ -151,8 +151,31 @@ a.self-link, a.pseudo, a.pseudo-link, .pseudo a, {
   height: 100%;
   min-height: 100%;
   width: 100%;
-}
+}*/
 
+#Cart .modal-title {
+  background: -webkit-linear-gradient(#2762B9, #972EEA);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: 'VoxRound', sans-serif;
+  font-size: 2.6rem;
+  font-weight: bold;
+  text-align: left;
+}
+a.delete {
+  color: #bbbbbb;
+  font-size: 1.2rem;
+}
+a.delete:hover {
+  color: #4e4d4d;
+}
+a.edit-pen {
+  color: #259fff;
+  font-size: 1.1rem;
+}
+a.edit-pen:hover {
+  color: #0073cf;
+}
 .caticon {
   max-height: 75px;
 }

@@ -16,9 +16,11 @@
     </b-col>
     <b-col :lg="6">
       <div v-if="selected === product.id" v-for="product of products.results" :key="product.id">
-        {{ product.pagetitle }}
+        {{ product.pagetitle }} {{ product.id }}
       </div>
-      <div v-else></div>
+      <div v-else>
+
+      </div>
     </b-col>
   </b-row>-->
 
@@ -41,7 +43,7 @@
         <b-row class="align-items-center mt-3" v-if="product.price != '0'">
           <b-col :lg="6">
             <div class="price">
-              {{ formatPrice(product.price) }} <font-awesome-icon :icon="['fas', 'ruble-sign']"/>
+              {{ product.price | format_price }} <font-awesome-icon :icon="['fas', 'ruble-sign']"/>
             </div>
           </b-col>
           <b-col :lg="6">
@@ -57,18 +59,15 @@
 </template>
 
 <script>
-import BuyButton from "@/components/BuyButton";
+import BuyButton from "@/components/BuyButton"
+import round from "@/mixins/round"
+import format_price from "@/mixins/format_price"
 export default {
   components: {
     BuyButton
   },
   props: ['category'],
-  methods: {
-    formatPrice(value) {
-      let val = value
-      return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
-    }
-  },
+  mixins: [round, format_price],
   data() {
     return {
       selected: null,
